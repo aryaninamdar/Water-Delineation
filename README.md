@@ -43,3 +43,17 @@ plt.tight_layout()
 ```
 
 ![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/example1.png)
+
+### Condition the Elevation Data
+```ruby
+# Condition DEM
+# ----------------------
+# Fill pits in DEM
+pit_filled_dem = grid.fill_pits(dem)
+
+# Fill depressions in DEM
+flooded_dem = grid.fill_depressions(pit_filled_dem)
+    
+# Resolve flats in DEM
+inflated_dem = grid.resolve_flats(flooded_dem)
+```
