@@ -112,3 +112,38 @@ plt.tight_layout()
 ```
 
 ![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example3.png)
+
+### Delineate Catchment From Flow Direction
+```ruby
+# Delineate a catchment
+# ---------------------
+# Specify pour point
+x, y = -97.294, 32.737
+
+# Snap pour point to high accumulation cell
+x_snap, y_snap = grid.snap_to_mask(acc > 1000, (x, y))
+
+# Delineate the catchment
+catch = grid.catchment(x=x_snap, y=y_snap, fdir=fdir, dirmap=dirmap, 
+                       xytype='coordinate')
+
+# Crop and plot the catchment
+# ---------------------------
+# Clip the bounding box to the catchment
+grid.clip_to(catch)
+clipped_catch = grid.view(catch)
+```
+
+Plotting Code:
+```ruby
+# Plot the catchment
+fig, ax = plt.subplots(figsize=(8,6))
+fig.patch.set_alpha(0)
+
+plt.grid('on', zorder=0)
+im = ax.imshow(np.where(clipped_catch, clipped_catch, np.nan), extent=grid.extent,
+               zorder=1, cmap='Greys_r')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Delineated Catchment', size=14)
+```
