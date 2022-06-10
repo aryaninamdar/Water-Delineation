@@ -87,3 +87,27 @@ plt.tight_layout()
 ```
 
 ![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example2.png)
+
+### Compute Accumulation From Flow Direction
+```ruby
+# Calculate flow accumulation
+# --------------------------
+acc = grid.accumulation(fdir, dirmap=dirmap)
+```
+
+Plotting Code:
+```ruby
+fig, ax = plt.subplots(figsize=(8,6))
+fig.patch.set_alpha(0)
+plt.grid('on', zorder=0)
+im = ax.imshow(acc, extent=grid.extent, zorder=2,
+               cmap='cubehelix',
+               norm=colors.LogNorm(1, acc.max()),
+               interpolation='bilinear')
+plt.colorbar(im, ax=ax, label='Upstream Cells')
+plt.title('Flow Accumulation', size=14)
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.tight_layout()
+```
+
