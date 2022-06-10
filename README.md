@@ -13,6 +13,13 @@ Example data used in this tutorial are linked below:
 
 Additional DEM datasets are available via the [USGS HydroSHEDS](https://www.hydrosheds.org/) project.
 
+### Installation
+You can install **pysheds** using pip
+
+```ruby
+$ pip install pysheds
+```
+
 ### Read DEM Data
 ```ruby
 # Read elevation raster
