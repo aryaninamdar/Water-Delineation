@@ -12,3 +12,13 @@ Example data used in this tutorial are linked below:
 - Soil Polygons: [soils.zip](https://pysheds.s3.us-east-2.amazonaws.com/data/soils.zip)
 
 Additional DEM datasets are available via the [USGS HydroSHEDS](https://www.hydrosheds.org/) project.
+
+### Read DEM Data
+```ruby
+# Read elevation raster
+# ----------------------------
+from pysheds.grid import Grid
+
+grid = Grid.from_raster('elevation.tiff')
+dem = grid.read_raster('elevation.tiff')
+```
