@@ -174,3 +174,24 @@ _ = plt.title('D8 channels', size=14)
 ```
 
 ![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example5.png)
+
+### Compute Flow Distance From Flow Direction
+```ruby
+# Calculate distance to outlet from each cell
+# -------------------------------------------
+dist = grid.distance_to_outlet(x=x_snap, y=y_snap, fdir=fdir, dirmap=dirmap,
+                               xytype='coordinate')
+```
+
+Plotting Code:
+```ruby
+fig, ax = plt.subplots(figsize=(8,6))
+fig.patch.set_alpha(0)
+plt.grid('on', zorder=0)
+im = ax.imshow(dist, extent=grid.extent, zorder=2,
+               cmap='cubehelix_r')
+plt.colorbar(im, ax=ax, label='Distance to outlet (cells)')
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Flow Distance', size=14)
+```
