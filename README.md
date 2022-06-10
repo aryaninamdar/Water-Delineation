@@ -42,4 +42,4 @@ plt.ylabel('Latitude')
 plt.tight_layout()
 ```
 
-![Image not found](https://drive.google.com/file/d/1QWqzryPYMaIeP5kk3in7XtG1ugTl2UFD/view?usp=sharing)
+![Image not found](file:///Users/aryaninamdar/Desktop/Screen%20Shot%202022-06-10%20at%203.25.00%20PM.png)
