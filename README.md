@@ -7,8 +7,8 @@ A simple and efficient water delineation simulation in Python which utilizes a d
 ## Example Usage
 Example data used in this tutorial are linked below:
 
-- Elevation: [elevation.tiff] (https://pysheds.s3.us-east-2.amazonaws.com/data/elevation.tiff)
-- Terrain: [impervious_area.zip] (https://pysheds.s3.us-east-2.amazonaws.com/data/impervious_area.zip)
-- Soil Polygons: [soils.zip] (https://pysheds.s3.us-east-2.amazonaws.com/data/soils.zip)
+- Elevation: [elevation.tiff](https://pysheds.s3.us-east-2.amazonaws.com/data/elevation.tiff)
+- Terrain: [impervious_area.zip](https://pysheds.s3.us-east-2.amazonaws.com/data/impervious_area.zip)
+- Soil Polygons: [soils.zip](https://pysheds.s3.us-east-2.amazonaws.com/data/soils.zip)
 
-Additional DEM datasets are available via the [USGS HydroSHEDS] (https://www.hydrosheds.org/) project.
+Additional DEM datasets are available via the [USGS HydroSHEDS](https://www.hydrosheds.org/) project.
