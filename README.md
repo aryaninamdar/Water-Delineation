@@ -261,3 +261,25 @@ ax.set_title('Soil types (vector)', size=14)
 ```
 
 ![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example8.png)
+
+### Convert From Vector to Raster
+```ruby
+soil_polygons = zip(catchment_soils.geometry.values, catchment_soils[soil_id].values)
+soil_raster = grid.rasterize(soil_polygons, fill=np.nan)
+```
+
+Plotting Code:
+```ruby
+fig, ax = plt.subplots(figsize=(8, 6))
+plt.imshow(soil_raster, cmap='terrain', extent=grid.extent, zorder=1)
+boundaries = np.unique(soil_raster[~np.isnan(soil_raster)]).astype(int)
+plt.colorbar(boundaries=boundaries,
+             values=boundaries)
+ax.set_xlim(grid.bbox[0], grid.bbox[2])
+ax.set_ylim(grid.bbox[1], grid.bbox[3])
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+ax.set_title('Soil types (raster)', size=14)
+```
+
+![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example9.png)
