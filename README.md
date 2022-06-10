@@ -224,3 +224,40 @@ plt.title('Percent impervious area', size=14)
 ```
 
 ![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example7.png)
+
+### Add Vector Data
+```ruby
+# Convert catchment raster to vector and combine with soils shapefile
+# ---------------------
+# Read soils shapefile
+import pandas as pd
+import geopandas as gpd
+from shapely import geometry, ops
+soils = gpd.read_file('soils.shp')
+soil_id = 'MUKEY'
+# Convert catchment raster to vector geometry and find intersection
+shapes = grid.polygonize()
+catchment_polygon = ops.unary_union([geometry.shape(shape)
+                                     for shape, value in shapes])
+soils = soils[soils.intersects(catchment_polygon)]
+catchment_soils = gpd.GeoDataFrame(soils[soil_id], 
+                                   geometry=soils.intersection(catchment_polygon))
+# Convert soil types to simple integer values
+soil_types = np.unique(catchment_soils[soil_id])
+soil_types = pd.Series(np.arange(soil_types.size), index=soil_types)
+catchment_soils[soil_id] = catchment_soils[soil_id].map(soil_types)
+```
+
+Plotting Code:
+```ruby
+fig, ax = plt.subplots(figsize=(8, 6))
+catchment_soils.plot(ax=ax, column=soil_id, categorical=True, cmap='terrain',
+                     linewidth=0.5, edgecolor='k', alpha=1, aspect='equal')
+ax.set_xlim(grid.bbox[0], grid.bbox[2])
+ax.set_ylim(grid.bbox[1], grid.bbox[3])
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+ax.set_title('Soil types (vector)', size=14)
+```
+
+![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example8.png)
