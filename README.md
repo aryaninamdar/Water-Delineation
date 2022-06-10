@@ -42,7 +42,7 @@ plt.ylabel('Latitude')
 plt.tight_layout()
 ```
 
-![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/example1.png)
+![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example1.png)
 
 ### Condition the Elevation Data
 ```ruby
