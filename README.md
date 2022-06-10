@@ -22,3 +22,23 @@ from pysheds.grid import Grid
 grid = Grid.from_raster('elevation.tiff')
 dem = grid.read_raster('elevation.tiff')
 ```
+
+Plotting Code:
+```ruby
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import colors
+import seaborn as sns
+
+fig, ax = plt.subplots(figsize=(8,6))
+fig.patch.set_alpha(0)
+
+plt.imshow(dem, extent=grid.extent, cmap='terrain', zorder=1)
+plt.colorbar(label='Elevation (m)')
+plt.grid(zorder=0)
+plt.title('Digital elevation map', size=14)
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.tight_layout()
+```
+
