@@ -42,3 +42,4 @@ plt.ylabel('Latitude')
 plt.tight_layout()
 ```
 
+![Image not found](<img width="490" alt="Screen Shot 2022-06-10 at 3 25 00 PM" src="https://user-images.githubusercontent.com/65751549/173158460-748d627d-2da0-4a88-8a84-e5493fee881b.png">)
