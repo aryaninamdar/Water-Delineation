@@ -85,3 +85,5 @@ plt.title('Flow direction grid', size=14)
 plt.grid(zorder=-1)
 plt.tight_layout()
 ```
+
+![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example2.png)
