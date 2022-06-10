@@ -149,3 +149,26 @@ plt.title('Delineated Catchment', size=14)
 ```
 
 ![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/examples/example4.png)
+
+### Extract the River Network
+```ruby
+# Extract river network
+# ---------------------
+branches = grid.extract_river_network(fdir, acc > 50, dirmap=dirmap)
+```
+
+Plotting Code:
+```ruby
+sns.set_palette('husl')
+fig, ax = plt.subplots(figsize=(8.5,6.5))
+
+plt.xlim(grid.bbox[0], grid.bbox[2])
+plt.ylim(grid.bbox[1], grid.bbox[3])
+ax.set_aspect('equal')
+
+for branch in branches['features']:
+    line = np.asarray(branch['geometry']['coordinates'])
+    plt.plot(line[:, 0], line[:, 1])
+    
+_ = plt.title('D8 channels', size=14)
+```
