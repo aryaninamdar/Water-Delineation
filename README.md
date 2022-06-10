@@ -42,4 +42,4 @@ plt.ylabel('Latitude')
 plt.tight_layout()
 ```
 
-![Image not found](file:///Users/aryaninamdar/Desktop/Screen%20Shot%202022-06-10%20at%203.25.00%20PM.png)
+![Image not found](https://github.com/aryaninamdar/Watershed-Delineation/blob/main/example1.jpg?raw=true)
