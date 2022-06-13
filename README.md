@@ -14,8 +14,6 @@ Example data used in this example are linked below:
 Additional DEM datasets: [USGS HydroSHEDS](https://www.hydrosheds.org/) project.
 
 ### Installation
-You can install **pysheds** using pip
-
 ```ruby
 $ pip install pysheds
 ```
